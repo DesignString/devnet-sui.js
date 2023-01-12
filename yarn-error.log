@@ -1,0 +1,125 @@
+Arguments: 
+  /Users/puni/.nvm/versions/node/v18.13.0/bin/node /Users/puni/.yarn/bin/yarn.js install
+
+PATH: 
+  /Users/puni/.rvm/gems/ruby-3.0.0/bin:/Users/puni/.rvm/gems/ruby-3.0.0@global/bin:/Users/puni/.rvm/rubies/ruby-3.0.0/bin:/Users/puni/.nvm/versions/node/v18.13.0/bin:/usr/local/sbin:/Users/puni/Library/pnpm:/Users/puni/.yarn/bin:/Users/puni/.config/yarn/global/node_modules/.bin:/usr/local/opt/mysql-client/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/puni/flutter/bin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/puni/.rvm/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.13.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/puni/Library/Caches/Yarn/v6/npm-globals-13.19.0-7a42de8e6ad4f7242fbcca27ea5b23aca367b5c8-integrity/node_modules/globals/index.d.ts' -> '/Users/puni/Sites/ds-frontier-extension/node_modules/@mysten/sui.js/node_modules/@eslint/eslintrc/node_modules/globals/index.d.ts'
+
+npm manifest: 
+  {
+    "name": "@mysten/sui.js",
+    "author": "Mysten Labs <build@mystenlabs.com>",
+    "description": "Sui TypeScript API(Work in Progress)",
+    "version": "0.22.0",
+    "license": "Apache-2.0",
+    "files": [
+      "dist",
+      "src",
+      "CHANGELOG.md"
+    ],
+    "engines": {
+      "node": ">=16"
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      }
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "pnpm lint"
+      }
+    },
+    "prettier": {
+      "printWidth": 80,
+      "semi": true,
+      "singleQuote": true,
+      "trailingComma": "es5"
+    },
+    "bugs": {
+      "url": "https://github.com/MystenLabs/sui/issues/new"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "size-limit": [
+      {
+        "path": "dist/index.js",
+        "limit": "100 KB"
+      },
+      {
+        "path": "dist/index.mjs",
+        "limit": "100 KB"
+      }
+    ],
+    "devDependencies": {
+      "@size-limit/preset-small-lib": "^8.1.0",
+      "eslint": "^8.31.0",
+      "eslint-config-prettier": "^8.6.0",
+      "eslint-config-react-app": "^7.0.1",
+      "eslint-plugin-prettier": "^4.2.1",
+      "husky": "^7.0.4",
+      "mockttp": "^2.7.0",
+      "prettier": "^2.8.1",
+      "size-limit": "^8.1.0",
+      "ts-node": "^10.9.1",
+      "ts-retry-promise": "^0.7.0",
+      "tslib": "^2.4.1",
+      "tsup": "^6.5.0",
+      "typedoc": "^0.23.23",
+      "typescript": "^4.9.4",
+      "vite": "^4.0.4",
+      "vitest": "^0.26.3",
+      "wait-on": "^7.0.1"
+    },
+    "dependencies": {
+      "@noble/hashes": "^1.1.5",
+      "@noble/secp256k1": "^1.7.0",
+      "@scure/bip32": "^1.1.1",
+      "@scure/bip39": "^1.1.0",
+      "@suchipi/femver": "^1.0.0",
+      "bs58": "^5.0.0",
+      "cross-fetch": "^3.1.5",
+      "jayson": "^4.0.0",
+      "js-sha3": "^0.8.0",
+      "rpc-websockets": "^7.5.0",
+      "superstruct": "^1.0.3",
+      "tweetnacl": "^1.0.3",
+      "@mysten/bcs": "0.5.0"
+    },
+    "scripts": {
+      "clean": "rm -rf tsconfig.tsbuildinfo ./dist",
+      "build": "pnpm build:types && tsup ./src/index.ts --format esm,cjs --sourcemap",
+      "build:types": "tsc --build",
+      "doc": "typedoc",
+      "test": "pnpm test:unit",
+      "test:unit": "vitest unit",
+      "test:e2e": "wait-on http://127.0.0.1:9123 -l --timeout 120000 && vitest e2e",
+      "test:e2e:nowait": "vitest e2e",
+      "prepare:e2e": "cargo build --bin sui-test-validator --bin sui --profile dev && RUST_LOG=info,sui=debug,anemo_tower=warn,consensus=off cargo run --bin sui-test-validator",
+      "lint": "eslint './{src,test}/**.{ts,js}'",
+      "size": "size-limit",
+      "analyze": "size-limit --why"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
